@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Révision BAC II A4 2026 - Interactive</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#eef2f7;
+    color:#222;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    background:linear-gradient(135deg,#2980b9,#6dd5fa);
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    font-size:2.5rem;
+}
+
+.section{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    margin-bottom:15px;
+    color:#1f4e79;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th,
+table td{
+    border:1px solid #ccc;
+    padding:12px;
+}
+
+table th{
+    background:#3498db;
+    color:white;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.false{
+    color:red;
+    font-weight:bold;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#3498db;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#217dbb;
+}
+
+.hidden{
+    display:none;
+}
+
+.card{
+    background:#f9fbfc;
+    border-left:6px solid #3498db;
+    padding:15px;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+.timeline{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.step{
+    width:18%;
+    min-width:120px;
+    background:#3498db;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    position:relative;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+
+.step:hover{
+    transform:scale(1.05);
+}
+
+.step::after{
+    content:"➜";
+    position:absolute;
+    right:-20px;
+    top:40%;
+    color:#333;
+    font-size:1.5rem;
+}
+
+.step:last-child::after{
+    display:none;
+}
+
+.quiz{
+    margin-top:20px;
+}
+
+.quiz button{
+    display:block;
+    width:100%;
+    margin-bottom:10px;
+    text-align:left;
+}
+
+.result{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.genetics-diagram{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.mouse{
+    text-align:center;
+}
+
+.mouse-circle{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin:auto;
+    margin-bottom:10px;
+}
+
+.black{
+    background:black;
+}
+
+.white{
+    background:white;
+    border:2px solid #ccc;
+}
+
+.gray{
+    background:gray;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Révision BAC II A4 2026</h1>
+    <p>Version Interactive avec Diagrammes</p>
+</header>
+
+<!-- ASSOCIATION -->
+<div class="section">
+
+<h2>I. Association des Colonnes</h2>
+
+<table>
+<tr>
+<th>Colonne A</th>
+<th>Réponse</th>
+</tr>
+
+<tr>
+<td>1ère loi de Mendel</td>
+<td>Uniformité des individus de la F1</td>
+</tr>
+
+<tr>
+<td>Adrénaline</td>
+<td>Augmente le rythme cardiaque</td>
+</tr>
+
+<tr>
+<td>Test-cross</td>
+<td>Vérification du génotype</td>
+</tr>
+
+<tr>
+<td>Thymus</td>
+<td>Organe immunitaire</td>
+</tr>
+
+<tr>
+<td>Le soi</td>
+<td>Élément propre à l’organisme</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- FAUSSES AFFIRMATIONS -->
+<div class="section">
+
+<h2>II. Vrai ou Faux</h2>
+
+<button onclick="toggleCorrections()">
+Afficher / Masquer les corrections
+</button>
+
+<div id="corrections" class="hidden">
+
+<div class="card">
+<p><span class="false">❌ 1</span> L’ovocyte II est bloqué en métaphase II.</p>
+</div>
+
+<div class="card">
+<p><span class="false">❌ 5</span> La spermiogenèse appartient à la spermatogenèse.</p>
+</div>
+
+<div class="card">
+<p><span class="false">❌ 7</span> L’hémophilie est récessive liée au chromosome X.</p>
+</div>
+
+<div class="card">
+<p><span class="false">❌ 9</span> L’ovogenèse produit 1 ovule viable.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- DEVELOPPEMENT EMBRYON -->
+<div class="section">
+
+<h2>III. Développement Embryonnaire</h2>
+
+<p>Du zygote jusqu’à la nidation :</p>
+
+<div class="timeline">
+
+<div class="step">Cellule œuf</div>
+
+<div class="step">Blastomères</div>
+
+<div class="step">Morula</div>
+
+<div class="step">Blastocyste</div>
+
+<div class="step">Nidation</div>
+
+</div>
+
+</div>
+
+<!-- ADN VS ARN -->
+<div class="section">
+
+<h2>IV. ADN vs ARN</h2>
+
+<table>
+
+<tr>
+<th>ADN</th>
+<th>ARN</th>
+</tr>
+
+<tr>
+<td>Double brin</td>
+<td>Simple brin</td>
+</tr>
+
+<tr>
+<td>Thymine</td>
+<td>Uracile</td>
+</tr>
+
+<tr>
+<td>Stable</td>
+<td>Moins stable</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- GENETIQUE -->
+<div class="section">
+
+<h2>V. Génétique des Souris</h2>
+
+<p>Croisement :</p>
+
+<div class="genetics-diagram">
+
+<div class="mouse">
+<div class="mouse-circle black"></div>
+<p>Souris noire</p>
+</div>
+
+<div style="font-size:2rem;">×</div>
+
+<div class="mouse">
+<div class="mouse-circle white"></div>
+<p>Souris blanche</p>
+</div>
+
+<div style="font-size:2rem;">➜</div>
+
+<div class="mouse">
+<div class="mouse-circle gray"></div>
+<p>F1 grise</p>
+</div>
+
+</div>
+
+<button onclick="showPunnett()">
+Afficher l’échiquier génétique
+</button>
+
+<div id="punnett" class="hidden">
+
+<table>
+
+<tr>
+<th></th>
+<th>N</th>
+<th>B</th>
+</tr>
+
+<tr>
+<th>N</th>
+<td>NN</td>
+<td>NB</td>
+</tr>
+
+<tr>
+<th>B</th>
+<td>NB</td>
+<td>BB</td>
+</tr>
+
+</table>
+
+<p style="margin-top:15px;">
+Résultat : 25% noirs, 50% gris, 25% blancs.
+</p>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
+<div class="section">
+
+<h2>VI. Mini Quiz Interactif</h2>
+
+<div class="quiz">
+
+<p><strong>Quel organe appartient au système immunitaire ?</strong></p>
+
+<button onclick="checkAnswer(this,false)">Foie</button>
+<button onclick="checkAnswer(this,true)">Thymus</button>
+<button onclick="checkAnswer(this,false)">Pancréas</button>
+
+<div id="quiz-result" class="result"></div>
+
+</div>
+
+</div>
+
+<!-- HEMOPHILIE -->
+<div class="section">
+
+<h2>VII. Hémophilie</h2>
+
+<div class="card">
+
+<p>
+L’hémophilie est une maladie héréditaire liée au chromosome X.
+</p>
+
+<p style="margin-top:10px;">
+Notation :
+</p>
+
+<ul style="margin-top:10px; padding-left:20px;">
+<li>Xᴴ : normal</li>
+<li>Xʰ : malade</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+    Révision Interactive BAC II A4 2026
+</footer>
+
+</div>
+
+<script>
+
+function toggleCorrections(){
+
+    const corrections =
+    document.getElementById("corrections");
+
+    corrections.classList.toggle("hidden");
+}
+
+function showPunnett(){
+
+    const punnett =
+    document.getElementById("punnett");
+
+    punnett.classList.toggle("hidden");
+}
+
+function checkAnswer(button,isCorrect){
+
+    const result =
+    document.getElementById("quiz-result");
+
+    if(isCorrect){
+
+        result.innerHTML =
+        "✅ Bonne réponse ! Le thymus appartient au système immunitaire.";
+
+        result.style.color = "green";
+
+    }else{
+
+        result.innerHTML =
+        "❌ Mauvaise réponse. Réessaie.";
+
+        result.style.color = "red";
+    }
+}
+
+</script>
+
+</body>
+</html>
